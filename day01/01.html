@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">{{message}}</div>
+<div id="app2">
+    <span v-bind :title="message">
+        鼠标悬停此处几秒，
+    可以看到此处动态绑定的 title！
+    </span>
+</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+  const app =  new Vue({
+        el:'#app',
+        data:{
+            message:'三玖天下第一'
+        }
+    })
+    const app2 = new Vue({
+        el:'#app2',
+        data:{
+            message:'页面加载于' + new Date().toLocaleString()
+        }
+    })
+</script>
+</html>
