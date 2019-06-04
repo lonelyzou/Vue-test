@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-if="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,10 +7,20 @@
 <body>
 <div id="app">{{message}}</div>
 <div id="app2">
-    <span v-bind :title="message">
+    <span v-bind:title="message">
         鼠标悬停此处几秒，
     可以看到此处动态绑定的 title！
     </span>
+</div>
+<div id="app3">
+    <span v-if="seen">现在你可以看到我</span>
+</div>
+<div id="app4">
+    <ol>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ol>
 </div>
 </body>
 <script src="../js/vue.js"></script>
@@ -27,5 +37,12 @@
             message:'页面加载于' + new Date().toLocaleString()
         }
     })
+    const app3 = new Vue({
+        el: '#app3',
+        data:{
+            seen: true
+        }
+    })
+
 </script>
 </html>
